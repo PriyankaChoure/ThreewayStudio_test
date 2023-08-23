@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
+  border-bottom: 2px solid gray;
+}
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* border: 2px solid; */
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10vw;
+  margin-right: 5px;
+}
+.link_button {
+  text-decoration: none;
+  font-weight: bold;
+}

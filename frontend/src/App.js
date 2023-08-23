@@ -1,11 +1,25 @@
-function App() {
-  return (
-    <div>
-      <header>
-        <h2>Welcome </h2>
-      </header>
-    </div>
-  );
-}
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
+import { StyledEngineProvider } from "@mui/system";
+import { HeaderComponent } from "./components/Header/HeaderComponent";
 
-export default App;
+export const App = () => {
+  return (
+    <StyledEngineProvider injectFirst>
+      <SnackbarProvider
+        maxSnack={1}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        preventDuplicate
+      >
+        <div>
+          <HeaderComponent />
+          <Outlet />
+        </div>
+      </SnackbarProvider>
+    </StyledEngineProvider>
+  );
+};
