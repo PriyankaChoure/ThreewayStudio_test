@@ -10,8 +10,14 @@ const app = express();
 // app.use(helmet());
 
 // enable cors
-app.use(cors());
-app.options("*", cors());
+app.use(
+  cors({
+    origin: ["https://threeway-studio-frontend.vercel.app/"],
+    methods: "*",
+    credentials: true,
+  })
+);
+// app.options("*", cors());
 
 // parse json request body
 app.use(express.json());
