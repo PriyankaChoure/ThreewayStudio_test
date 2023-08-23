@@ -5,7 +5,7 @@ import axios from "axios";
  */
 
 // const SERVER_URL = "http://localhost:8082/backend/";
-const SERVER_URL = "https://threeway-studio-test.vercel.app/beckend";
+const SERVER_URL = "https://threeway-studio-test.vercel.app/backend";
 
 // method for Login-
 export const register = async (userData) => {
