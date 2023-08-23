@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { SnackbarProvider, useSnackbar } from "notistack";
+import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./LoginPage.module.css";
-// import { login } from "../apis/api";
 import { LoginComponent } from "../components/Login/LoginComponent";
 import { login } from "../apis/api";
 
@@ -67,10 +66,11 @@ export const LoginPage = () => {
       }
     }
   };
-  const persistLogin = (token, email, userType) => {
+  const persistLogin = (token, email, usertype) => {
     localStorage.setItem("token", token);
     localStorage.setItem("email", email);
-    localStorage.setItem("userType", userType);
+    localStorage.setItem("userType", usertype);
+    localStorage.setItem("isLoggedIn", true);
   };
   return (
     <div className={styles.wrraper}>
