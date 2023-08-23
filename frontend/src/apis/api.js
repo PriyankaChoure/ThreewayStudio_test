@@ -3,7 +3,9 @@ import axios from "axios";
  * API List-
  * FOR LOGIN - localhost:8082/backend/auth/login
  */
-const SERVER_URL = "http://localhost:8082/backend/";
+
+// const SERVER_URL = "http://localhost:8082/backend/";
+const SERVER_URL = "https://threeway-studio-test.vercel.app/";
 
 // method for Login-
 export const register = async (userData) => {
