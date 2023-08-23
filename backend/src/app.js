@@ -12,7 +12,7 @@ const app = express();
 // enable cors
 app.use(
   cors({
-    origin: ["https://threeway-studio-frontend.vercel.app"],
+    origin: ["https://threeway-studio-frontend.vercel.app/backend"],
     methods: ["GET", "POST"],
     credentials: true,
   })
