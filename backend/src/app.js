@@ -12,8 +12,8 @@ const app = express();
 // enable cors
 app.use(
   cors({
-    origin: ["*"],
-    methods: "*",
+    origin: ["https://threeway-studio-frontend.vercel.app"],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
