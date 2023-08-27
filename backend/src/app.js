@@ -2,6 +2,7 @@ const express = require("express");
 // const compression = require("compression");
 // const helmet = require("helmet");
 const cors = require("cors");
+
 const httpStatus = require("http-status");
 const routes = require("./routes/");
 const app = express();
@@ -10,14 +11,15 @@ const app = express();
 // app.use(helmet());
 
 // enable cors
-app.use(
-  cors({
-    origin: ["https://threeway-studio-frontend.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
-// app.options("*", cors());
+// app.use(
+//   cors({
+//     origin: ["https://threeway-studio-frontend.vercel.app"],
+//     methods: ["POST", "GET"],
+//     credentials: true,
+//   })
+// );
+app.use(cors());
+app.options("*", cors());
 
 // parse json request body
 app.use(express.json());

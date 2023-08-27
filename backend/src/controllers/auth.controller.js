@@ -8,6 +8,7 @@ const register = async (req, res) => {
   try {
     const savedUser = await authService.createUser(userData);
     if (!savedUser) {
+      console.log("saved user - ", savedUser);
       res.status(httpStatus.BAD_REQUEST).json("not able to create user");
     } else {
       res.status(httpStatus.OK).json(savedUser);

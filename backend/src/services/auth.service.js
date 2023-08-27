@@ -10,21 +10,24 @@ const createUser = async (userData) => {
     email: userData.email,
     contact: userData.contact,
     usertype: userData.usertype,
-    isAdmin: userData.isAdmin,
+    address: userData.address,
   });
-  console.log(Object.keys(userData.address).length);
-  if (Object.keys(userData.address).length !== 0) {
-    newUser.address = userData.address;
-  }
-  //   console.log(newUser);
+  // console.log(Object.keys(userData.address).length);
+  // if (Object.keys(userData.address).length !== 0) {
+  //   newUser.address = userData.address;
+  // }
+  console.log(newUser);
+  // newUser.markModified("address");
   const user = await newUser.save();
+  // const user = await User.findOne({ email: userData.email });
+  console.log("others - ", user);
   const { password, ...others } = user._doc;
   return others;
 };
 
 const loginUserWithEmailAndPassword = async (email, password) => {
   const user = await User.findOne({ email: email });
-
+  console.log("login user - ", user);
   const isPasswordMatch = await bcrypt.compare(password, user.password);
   if (isPasswordMatch) {
     const { password, ...others } = user._doc;

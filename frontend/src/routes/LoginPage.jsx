@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useSnackbar } from "notistack";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 import styles from "./LoginPage.module.css";
 import { LoginComponent } from "../components/Login/LoginComponent";
 import { login } from "../apis/api";
 
 export const LoginPage = () => {
+  const { outletContextData } = useOutletContext();
+  const setUserDetail = outletContextData.setUserDetail;
+
   const [userCredentials, setUserCredential] = useState({});
   const isEmail = (email) =>
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -44,6 +47,12 @@ export const LoginPage = () => {
         responseData.data.user.email,
         responseData.data.user.usertype
       );
+      setUserDetail({
+        username: responseData.data.user.username,
+        id: responseData.data.user._id,
+        address: responseData.data.user.address,
+        userType: responseData.data.user.usertype,
+      });
       navigate("/");
     } catch (err) {
       console.log(err);

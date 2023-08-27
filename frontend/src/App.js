@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/system";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 
 export const App = () => {
+  const [userDetail, setUserDetail] = useState({});
   return (
     <StyledEngineProvider injectFirst>
       <SnackbarProvider
@@ -17,7 +18,14 @@ export const App = () => {
       >
         <div>
           <HeaderComponent />
-          <Outlet />
+          <Outlet
+            context={{
+              outletContextData: {
+                userDetail,
+                setUserDetail,
+              },
+            }}
+          />
         </div>
       </SnackbarProvider>
     </StyledEngineProvider>
